@@ -1,0 +1,101 @@
+﻿<Window x:Class="MollaevYaroshevski.WindowFolder.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MollaevYaroshevski.WindowFolder"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="470" Width="800" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" >
+    <Border Background="#101e41" CornerRadius="6" >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96*"/>
+                <RowDefinition Height="49*"/>
+                <RowDefinition Height="57*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="57*"/>
+                <RowDefinition Height="132*"/>
+                <RowDefinition Height="64*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="588"/>
+            </Grid.ColumnDefinitions>
+            <Border Background="#f72c7e" Grid.ColumnSpan="2" CornerRadius="6,6,0,27" Grid.RowSpan="1" x:Name="SecBorder"/>
+
+            <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/Logo.png" Grid.Row="0" Grid.RowSpan="1" Margin="0,0,75,0"/>
+            <Border x:Name="ListBD"  CornerRadius="17" Grid.Row="2" Grid.ColumnSpan="1"  Margin="10,5,13,5" MouseLeftButtonDown="ListBD_MouseLeftButtonDown">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
+                </Border.Effect>
+                <Label Content="Список"  Style="{DynamicResource LabelNormalStyle}" Margin="18,0,18,2">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="White" Opacity="100" Direction="1" ShadowDepth="0" />
+                    </Label.Effect>
+                </Label>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Border.Style>
+            </Border>
+
+            <Border x:Name="AddBD"  CornerRadius="17" Grid.Row="4" Grid.ColumnSpan="1"  Margin="10,5,13,5" MouseLeftButtonDown="AddBD_MouseLeftButtonDown">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
+                </Border.Effect>
+                <Label Content="Добавление"  Style="{DynamicResource LabelNormalStyle}" Margin="18,0,18,2">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="White" Opacity="100" Direction="1" ShadowDepth="0" />
+                    </Label.Effect>
+                </Label>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Border.Style>
+            </Border>
+
+            <Border x:Name="BackBD"  CornerRadius="17" Grid.Row="6" Grid.ColumnSpan="1"  Margin="10,5,13,5" MouseLeftButtonDown="BackBD_MouseLeftButtonDown">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
+                </Border.Effect>
+                <Label Content="Назад"  Style="{DynamicResource LabelNormalStyle}" Margin="18,0,18,2">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="White" Opacity="100" Direction="1" ShadowDepth="0" />
+                    </Label.Effect>
+                </Label>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                                <Setter Property="BorderBrush" Value="PaleVioletRed"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Trigger>
+
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                
+            </Border>
+            <Frame Grid.Column="1"  x:Name="MainFrame" 
+                       NavigationUIVisibility="Hidden" Grid.RowSpan="7" Margin="0,0,0,5"/>
+            <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/Close.png" Grid.Column="1" Margin="551,10,10,62" MouseLeftButtonDown="Image_MouseLeftButtonDown"  />
+        </Grid>
+    </Border>
+</Window>
