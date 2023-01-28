@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:MollaevYaroshevski.WindowFolder"
         mc:Ignorable="d"
         Title="Окно авторизации" 
-        Height="600" Width="400"
+        Height="700" Width="400"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Border  CornerRadius="4"  >
@@ -33,9 +33,10 @@
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="0"/>
-                <RowDefinition Height="160*"/>
-                <RowDefinition Height="59*"/>
-                <RowDefinition Height="111*"/>
+                <RowDefinition Height="208*"/>
+                <RowDefinition Height="63*"/>
+                <RowDefinition Height="91*"/>
+                <RowDefinition Height="68*"/>
 
             </Grid.RowDefinitions>
             <Border Background="#f72c7e" CornerRadius="1,0,0,20" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,10" x:Name="SecBorder"/>
@@ -86,7 +87,7 @@
                     <DropShadowEffect BlurRadius="2" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
-            <Border x:Name="LoginBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,6,117,63" MouseLeftButtonDown="LoginBD_MouseLeftButtonDown">
+            <Border x:Name="LoginBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,6,117,49" MouseLeftButtonDown="LoginBD_MouseLeftButtonDown">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
                 </Border.Effect>
@@ -128,7 +129,7 @@
 
                 </Border.Style>
             </Border>
-            <Border x:Name="RegBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,59,18,10" MouseLeftButtonDown="RegBD_MouseLeftButtonDown" >
+            <Border x:Name="RegBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,49,117,0" MouseLeftButtonDown="RegBD_MouseLeftButtonDown" >
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0" />
                 </Border.Effect>
@@ -149,14 +150,36 @@
                     </Label.Effect>
                 </Label>
             </Border>
+
+            <Border x:Name="recoverBD"  CornerRadius="17" Grid.Row="11" Margin="18,7,117,18" MouseLeftButtonDown="recoverBD_MouseLeftButtonDown" Grid.ColumnSpan="2" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0" />
+                </Border.Effect>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Border.Style>
+                <Label Content="Востановить аккаунт"  Style="{DynamicResource LabelNormalStyle}" Margin="10,0,10,2" >
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="White" Opacity="100" Direction="1" ShadowDepth="0"/>
+                    </Label.Effect>
+                </Label>
+            </Border>
             <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/Close.png" Margin="227,4,3,82" Grid.Column="1" MouseLeftButtonDown="Image_MouseLeftButtonDown" Grid.RowSpan="2"/>
             <Image HorizontalAlignment="Left" Height="80" Margin="52,30,0,0" Grid.Row="8" VerticalAlignment="Top" Width="313" Grid.ColumnSpan="2" x:Name="CaptchaIMG"/>
-            <CheckBox Grid.Column="1" x:Name="RememberCHB"  HorizontalAlignment="Left" Margin="177,6,0,0" Grid.Row="10" VerticalAlignment="Top" Width="14" Height="14" Background="#f72c7e" BorderBrush="White" BorderThickness="0.5" Foreground="#FF081944">
+            <CheckBox Grid.Column="1" x:Name="RememberCHB"  HorizontalAlignment="Left" Margin="177,42,0,0" Grid.Row="10" VerticalAlignment="Top" Width="14" Height="14" Background="#f72c7e" BorderBrush="White" BorderThickness="0.5" Foreground="#FF081944">
                 <CheckBox.LayoutTransform>
                     <ScaleTransform ScaleX="2" ScaleY="2" />
                 </CheckBox.LayoutTransform>
             </CheckBox>
-            <Label Grid.Column="1" Content="Запомнить меня" HorizontalAlignment="Left" Margin="138,27,0,0" Grid.Row="10" VerticalAlignment="Top" Height="27" Width="106" Style="{DynamicResource LabelNormalStyle }" FontSize="12"/>
+            <Label Grid.Column="1" Content="Запомнить меня" HorizontalAlignment="Left" Margin="138,65,0,0" Grid.Row="10" VerticalAlignment="Top" Height="26" Width="106" Style="{DynamicResource LabelNormalStyle }" FontSize="12"/>
 
         </Grid>
     </Border>

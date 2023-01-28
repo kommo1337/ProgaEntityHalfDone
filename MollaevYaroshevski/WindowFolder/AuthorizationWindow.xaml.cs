@@ -200,5 +200,10 @@ namespace MollaevYaroshevski.WindowFolder
             load.Save(@"C:\Users\\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml");
         }
 
+        private void recoverBD_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            new RecoverAccWindow().Show();
+            Close();
+        }
     }
 }

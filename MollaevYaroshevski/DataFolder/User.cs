@@ -18,6 +18,7 @@ namespace MollaevYaroshevski.DataFolder
         public string Login { get; set; }
         public string Password { get; set; }
         public Nullable<int> IdRole { get; set; }
+        public string Сodeword { get; set; }
     
         public virtual Role Role { get; set; }
     }
