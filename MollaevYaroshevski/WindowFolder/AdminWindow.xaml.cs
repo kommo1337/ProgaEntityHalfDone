@@ -1,4 +1,6 @@
-﻿using MollaevYaroshevski.ClassFolder;
+﻿using Microsoft.Win32;
+using MollaevYaroshevski.ClassFolder;
+using MollaevYaroshevski.DataFolder;
 using MollaevYaroshevski.PageFolder;
 using System;
 using System.Collections.Generic;
@@ -24,11 +26,13 @@ namespace MollaevYaroshevski.WindowFolder
         public AdminWindow()
         {
             InitializeComponent();
+            
             SecBorder.MouseDown += (o, e) => DragMove();
             MainFrame.Navigate(new ListUserPAge());
+            
         }
 
-
+        
         private void ListBD_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             MainFrame.Navigate(new ListUserPAge());
@@ -51,6 +55,6 @@ namespace MollaevYaroshevski.WindowFolder
             Close();
         }
 
-
+        
     }
 }

@@ -15,16 +15,17 @@
                 <ColumnDefinition Width="80*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="21*"/>
-                <RowDefinition Height="20*"/>
-                <RowDefinition Height="109*"/>
+                <RowDefinition Height="64*"/>
+                <RowDefinition Height="61*"/>
+                <RowDefinition Height="275*"/>
+                <RowDefinition Height="55*"/>
             </Grid.RowDefinitions>
             <Label Content="Список Пользователей" Grid.ColumnSpan="2" Margin="1,11,0,10" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Style="{DynamicResource LabelLogoStyle}">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="65" Color="White" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
-            <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/search.png" Margin="30,24,206,327.333" Grid.Row="1" Grid.RowSpan="2" />
+            <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/search.png" Margin="30,24,206,262" Grid.Row="1" Grid.RowSpan="2" />
             <TextBox 
                  Grid.Row="1" x:Name="SearchTB" TextChanged="SearchTB_TextChanged"
                 BorderThickness="0,0,0,0.3" Background="Transparent" 
@@ -35,7 +36,7 @@
                 </TextBox.Effect>
             </TextBox>
             <DataGrid HorizontalAlignment="Left"
-                      Height="310" Margin="10,10,0,0" 
+                      Height="210" Margin="10,10,0,0" 
                       Grid.Row="2" VerticalAlignment="Top" 
                       Width="568" Grid.ColumnSpan="2" 
                       Background="Transparent" Foreground="DarkGray"
@@ -53,7 +54,27 @@
                     <DataGridTextColumn Header="Role" Width="*" Binding="{Binding Role.RoleName}"/>
                 </DataGrid.Columns>
             </DataGrid>
+            <Border x:Name="ExportBD"  CornerRadius="17" Grid.Row="3" Grid.ColumnSpan="1"  Margin="10,0,13,5" MouseLeftButtonDown="ExportBD_MouseLeftButtonDown" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
+                </Border.Effect>
+                <Label Content="Экспорт в Excel"  Style="{DynamicResource LabelNormalStyle}" Margin="18,0,18,2">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="White" Opacity="100" Direction="1" ShadowDepth="0" />
+                    </Label.Effect>
+                </Label>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
 
+                </Border.Style>
+            </Border>
         </Grid>
     </Border>
 </Page>

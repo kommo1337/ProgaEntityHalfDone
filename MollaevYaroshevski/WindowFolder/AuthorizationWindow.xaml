@@ -7,7 +7,7 @@
         xmlns:local="clr-namespace:MollaevYaroshevski.WindowFolder"
         mc:Ignorable="d"
         Title="Окно авторизации" 
-        Height="410" Width="400"
+        Height="600" Width="400"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
     <Border  CornerRadius="4"  >
@@ -32,7 +32,10 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="70"/>
                 <RowDefinition Height="10"/>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="0"/>
+                <RowDefinition Height="160*"/>
+                <RowDefinition Height="59*"/>
+                <RowDefinition Height="111*"/>
 
             </Grid.RowDefinitions>
             <Border Background="#f72c7e" CornerRadius="1,0,0,20" Grid.ColumnSpan="2" Grid.RowSpan="2" Margin="0,0,0,10" x:Name="SecBorder"/>
@@ -48,8 +51,14 @@
                     <DropShadowEffect BlurRadius="65" Color="White" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
-            <TextBox Grid.Column="2"
-                 Grid.Row="3" x:Name="LOginText" BorderThickness="0,0,0,0.3" Background="Transparent" BorderBrush="WhiteSmoke" Foreground="White" CaretBrush="White" >
+            <TextBox Grid.Column="1"
+                 Grid.Row="3" x:Name="LOginText" BorderThickness="0,0,0,0.3" Background="Transparent" BorderBrush="WhiteSmoke" Foreground="White" CaretBrush="White" Margin="18,18,18,18" >
+                <TextBox.Effect>
+                    <DropShadowEffect BlurRadius="5" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
+                </TextBox.Effect>
+            </TextBox>
+            <TextBox
+                 Grid.Row="8" x:Name="CaptchaTB" BorderThickness="0,0,0,0.3" Background="Transparent" BorderBrush="WhiteSmoke" Foreground="White" CaretBrush="White" Margin="84,116,102,10" Grid.ColumnSpan="2" >
                 <TextBox.Effect>
                     <DropShadowEffect BlurRadius="5" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </TextBox.Effect>
@@ -57,14 +66,14 @@
             <Label Content="Логин"
                Grid.Column="0"
                Grid.Row="3"
-               Style="{DynamicResource LabelNormalStyle}">
+               Style="{DynamicResource LabelNormalStyle}" Margin="18,18,18,18">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="2" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
             <PasswordBox
-            Grid.Column="2"
-                 Grid.Row="5" x:Name="PasswordPSB" BorderThickness="0,0,0,0.3" Background="Transparent" BorderBrush="WhiteSmoke" Foreground="White" CaretBrush="White">
+            Grid.Column="1"
+                 Grid.Row="5" x:Name="PasswordPSB" BorderThickness="0,0,0,0.3" Background="Transparent" BorderBrush="WhiteSmoke" Foreground="White" CaretBrush="White" Margin="18,18,18,18">
                 <PasswordBox.Effect>
                     <DropShadowEffect BlurRadius="5" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </PasswordBox.Effect>
@@ -72,12 +81,12 @@
             <Label Content="Пароль"
                Grid.Column="0"
                Grid.Row="5"
-               Style="{DynamicResource LabelNormalStyle}">
+               Style="{DynamicResource LabelNormalStyle}" Margin="18,18,18,18">
                 <Label.Effect>
                     <DropShadowEffect BlurRadius="2" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
-            <Border x:Name="LoginBD"  CornerRadius="17" Grid.Row="7" Grid.ColumnSpan="2" Margin="18,10,18,18" MouseLeftButtonDown="LoginBD_MouseLeftButtonDown">
+            <Border x:Name="LoginBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,6,18,63" MouseLeftButtonDown="LoginBD_MouseLeftButtonDown">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
                 </Border.Effect>
@@ -98,7 +107,28 @@
 
                 </Border.Style>
             </Border>
-            <Border x:Name="RegBD"  CornerRadius="17" Grid.Row="7" Grid.ColumnSpan="2" Margin="18,73,18,-45" MouseLeftButtonDown="RegBD_MouseLeftButtonDown" >
+            <Border x:Name="Refresh"  CornerRadius="17" Grid.Row="9" Grid.ColumnSpan="2" Margin="18,6,18,6" MouseLeftButtonDown="Refresh_MouseLeftButtonDown">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
+                </Border.Effect>
+                <Label Content="Обновить Каптчу"  Style="{DynamicResource LabelNormalStyle}" Margin="18,0,18,2">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="20" Color="White" Opacity="100" Direction="1" ShadowDepth="0" />
+                    </Label.Effect>
+                </Label>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Border.Style>
+            </Border>
+            <Border x:Name="RegBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,59,18,10" MouseLeftButtonDown="RegBD_MouseLeftButtonDown" >
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0" />
                 </Border.Effect>
@@ -120,7 +150,8 @@
                 </Label>
             </Border>
             <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/Close.png" Margin="227,4,3,82" Grid.Column="1" MouseLeftButtonDown="Image_MouseLeftButtonDown" Grid.RowSpan="2"/>
-            
+            <Image HorizontalAlignment="Left" Height="80" Margin="75,5,0,0" Grid.Row="8" VerticalAlignment="Top" Width="313" Grid.ColumnSpan="2" x:Name="CaptchaIMG"/>
+
         </Grid>
     </Border>
 </Window>

@@ -1,4 +1,5 @@
-﻿using MollaevYaroshevski.ClassFolder;
+﻿using Microsoft.Win32;
+using MollaevYaroshevski.ClassFolder;
 using MollaevYaroshevski.DataFolder;
 using System;
 using System.Collections.Generic;
@@ -61,6 +62,37 @@ namespace MollaevYaroshevski.PageFolder
             catch (Exception ex)
             {
                 MBClass.ErrorMB(ex);
+            }
+        }
+
+        private void ExportBD_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+
+            saveFile.DefaultExt = ".xls";
+
+            saveFile.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm";
+
+            if (saveFile.ShowDialog()==true)
+            {
+                try
+                {
+                    UserDG.SelectAllCells();
+                    UserDG.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                    ApplicationCommands.Copy.Execute(null, UserDG);
+                    String res = (string)Clipboard.GetData(DataFormats.CommaSeparatedValue);
+                    String result = (string)Clipboard.GetData(DataFormats.Text);
+                    UserDG.UnselectAllCells();
+
+                    System.IO.StreamWriter file = new System.IO.StreamWriter(saveFile.FileName);
+                    file.WriteLine(result.Replace(',',' '));
+                    file.Close();
+                    MBClass.InfoMB("all done");
+                }
+                catch (Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }
             }
         }
     }

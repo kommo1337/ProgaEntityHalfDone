@@ -26,6 +26,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -111,6 +112,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ClassFolder\Captcha.cs" />
+    <Compile Include="ClassFolder\CaptchaResult.cs" />
     <Compile Include="ClassFolder\MBClass.cs" />
     <Compile Include="ClassFolder\VariableClass.cs" />
     <Compile Include="DataFolder\ContextClass.cs" />

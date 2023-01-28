@@ -15,7 +15,9 @@
                 <RowDefinition Height="57*"/>
                 <RowDefinition Height="15*"/>
                 <RowDefinition Height="57*"/>
-                <RowDefinition Height="132*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="57*"/>
+                <RowDefinition Height="75*"/>
                 <RowDefinition Height="64*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -68,8 +70,9 @@
 
                 </Border.Style>
             </Border>
+            
 
-            <Border x:Name="BackBD"  CornerRadius="17" Grid.Row="6" Grid.ColumnSpan="1"  Margin="10,5,13,5" MouseLeftButtonDown="BackBD_MouseLeftButtonDown">
+            <Border x:Name="BackBD"  CornerRadius="17" Grid.Row="8" Grid.ColumnSpan="1"  Margin="10,5,13,5" MouseLeftButtonDown="BackBD_MouseLeftButtonDown">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
                 </Border.Effect>
@@ -91,10 +94,10 @@
                         </Style.Triggers>
                     </Style>
                 </Border.Style>
-                
+
             </Border>
             <Frame Grid.Column="1"  x:Name="MainFrame" 
-                       NavigationUIVisibility="Hidden" Grid.RowSpan="7" Margin="0,0,0,5"/>
+                       NavigationUIVisibility="Hidden" Grid.RowSpan="9" Margin="0,0,0,5"/>
             <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/Close.png" Grid.Column="1" Margin="551,10,10,62" MouseLeftButtonDown="Image_MouseLeftButtonDown"  />
         </Grid>
     </Border>
