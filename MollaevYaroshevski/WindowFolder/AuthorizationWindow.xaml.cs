@@ -61,6 +61,7 @@ namespace MollaevYaroshevski.WindowFolder
                         }
                         else
                         {
+
                             switch (user.IdRole)
                             {
                                 case 1:
@@ -107,8 +108,8 @@ namespace MollaevYaroshevski.WindowFolder
 
         void LoadContentCaptcha()
         {
-            int w = 100;
-            int h = 36;
+            int w = (int)CaptchaIMG.Width;
+            int h = (int)CaptchaIMG.Height;
             var CaptchaCode = Captcha.GenerateCaptcha();
             _CaptchaCode = CaptchaCode;
 
@@ -125,7 +126,7 @@ namespace MollaevYaroshevski.WindowFolder
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             load = new XmlDocument();
-            load.Load(@"C:\Users\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml"); 
+            load.Load(@"C:\\Users\\kommo\\Source\\Repos\\ProgaEntityHalfDone1\\MollaevYaroshevski\\ResourceFolder\\LoadFile.xml"); 
             xmlElement = load.DocumentElement;
             if (xmlElement != null)
             {
@@ -160,7 +161,7 @@ namespace MollaevYaroshevski.WindowFolder
         private void ChangeXML()
         {
             load = new XmlDocument();
-            load.Load(@"C:\Users\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml");
+            load.Load(@"C:\\Users\\kommo\\Source\\Repos\\ProgaEntityHalfDone1\\MollaevYaroshevski\\ResourceFolder\\LoadFile.xml");
             xmlElement = load.DocumentElement;
             bool Check = false;
             if (xmlElement != null)
@@ -196,7 +197,7 @@ namespace MollaevYaroshevski.WindowFolder
                     }
                 }
             }
-            load.Save(@"C:\Users\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml");
+            load.Save(@"C:\Users\\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml");
         }
 
     }

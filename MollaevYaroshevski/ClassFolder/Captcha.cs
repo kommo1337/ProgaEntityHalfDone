@@ -92,7 +92,7 @@ namespace MollaevYaroshevski.ClassFolder
 
                 void DrawLine()
                 {
-                    System.Drawing.Pen linePen = new System.Drawing.Pen(System.Drawing.Color.Black, 2);
+                    System.Drawing.Pen linePen = new System.Drawing.Pen(System.Drawing.Color.Black, 3);
 
                     for (int i = 0; i < random.Next(3, 5); i++)
                     {
