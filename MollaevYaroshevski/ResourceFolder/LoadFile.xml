@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<users>
+  <checkbox type="CHB">
+    <checked>0</checked>
+  </checkbox>
+  <user name="USR">
+    <login>1</login>
+    <password>1</password>
+  </user>
+</users>

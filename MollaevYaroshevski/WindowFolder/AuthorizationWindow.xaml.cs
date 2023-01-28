@@ -14,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 
 namespace MollaevYaroshevski.WindowFolder
@@ -64,9 +65,11 @@ namespace MollaevYaroshevski.WindowFolder
                             {
                                 case 1:
                                     new AdminWindow().Show();
+                                    ChangeXML();
                                     break;
                                 case 2:
                                     MBClass.InfoMB("Rab");
+                                    ChangeXML();
                                     break;
                             }
 
@@ -115,5 +118,86 @@ namespace MollaevYaroshevski.WindowFolder
 
             CaptchaIMG.Source = BitmapFrame.Create(stream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
         }
+
+        XmlDocument load;
+        XmlElement xmlElement;
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            load = new XmlDocument();
+            load.Load(@"C:\Users\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml"); 
+            xmlElement = load.DocumentElement;
+            if (xmlElement != null)
+            {
+                foreach (XmlNode node in xmlElement)
+                {
+                    if (node?.FirstChild.InnerText == "1")
+                    {
+                        RememberCHB.IsChecked = true;
+                    }
+                    else if (node?.FirstChild.InnerText == "0")
+                    {
+                        break;
+                    }
+                    if (node.Name == "user")
+                    {
+                        foreach (XmlElement el in node)
+                        {
+                            if (el?.Name == "login")
+                            {
+                                LOginText.Text = el.InnerText;
+                            }
+                            if (el?.Name == "password")
+                            {
+                                PasswordPSB.Password = el.InnerText;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void ChangeXML()
+        {
+            load = new XmlDocument();
+            load.Load(@"C:\Users\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml");
+            xmlElement = load.DocumentElement;
+            bool Check = false;
+            if (xmlElement != null)
+            {
+                foreach (XmlNode node in xmlElement)
+                {
+                    if (RememberCHB.IsChecked == false)
+                    {
+                        node.FirstChild.InnerText = "0";
+                        break;
+                    }
+                    else if (RememberCHB.IsChecked == true)
+                    {
+                        node.FirstChild.InnerText = "1";
+                        Check = true;
+                    }
+                    if (Check)
+                    {
+                        if (node.Name == "user")
+                        {
+                            foreach (XmlElement el in node)
+                            {
+                                if (el?.Name == "login")
+                                {
+                                    el.InnerText = LOginText.Text;
+                                }
+                                if (el?.Name == "password")
+                                {
+                                    el.InnerText = PasswordPSB.Password;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            load.Save(@"C:\Users\kommo\Source\Repos\ProgaEntityHalfDone1\MollaevYaroshevski\ResourceFolder\LoadFile.xml");
+        }
+
     }
 }

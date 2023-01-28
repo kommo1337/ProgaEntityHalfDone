@@ -9,7 +9,7 @@
         Title="Окно авторизации" 
         Height="600" Width="400"
         ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Loaded="Window_Loaded">
     <Border  CornerRadius="4"  >
 
         <Border.Background>
@@ -86,7 +86,7 @@
                     <DropShadowEffect BlurRadius="2" Color="LightGray" Opacity="100" Direction="1" ShadowDepth="0"/>
                 </Label.Effect>
             </Label>
-            <Border x:Name="LoginBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,6,18,63" MouseLeftButtonDown="LoginBD_MouseLeftButtonDown">
+            <Border x:Name="LoginBD"  CornerRadius="17" Grid.Row="10" Grid.ColumnSpan="2" Margin="18,6,60,63" MouseLeftButtonDown="LoginBD_MouseLeftButtonDown">
                 <Border.Effect>
                     <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
                 </Border.Effect>
@@ -151,6 +151,7 @@
             </Border>
             <Image Source="/MollaevYaroshevski;component/ResourceFolder/ImageFolder/Close.png" Margin="227,4,3,82" Grid.Column="1" MouseLeftButtonDown="Image_MouseLeftButtonDown" Grid.RowSpan="2"/>
             <Image HorizontalAlignment="Left" Height="80" Margin="75,5,0,0" Grid.Row="8" VerticalAlignment="Top" Width="313" Grid.ColumnSpan="2" x:Name="CaptchaIMG"/>
+            <CheckBox Grid.Column="1" x:Name="RememberCHB"  HorizontalAlignment="Left" Margin="208,19,0,0" Grid.Row="10" VerticalAlignment="Top" Width="16" Height="16"/>
 
         </Grid>
     </Border>
