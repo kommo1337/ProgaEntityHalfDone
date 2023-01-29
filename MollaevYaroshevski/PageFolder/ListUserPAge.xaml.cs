@@ -95,5 +95,34 @@ namespace MollaevYaroshevski.PageFolder
                 }
             }
         }
+
+        private void ExportBDWord_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+
+            saveFile.DefaultExt = ".doc";
+
+            saveFile.Filter = "Word Files|*.doc";
+
+            if (saveFile.ShowDialog() == true)
+            {
+                try
+                {
+                    UserDG.SelectAllCells();
+                    UserDG.ClipboardCopyMode = DataGridClipboardCopyMode.IncludeHeader;
+                    ApplicationCommands.Copy.Execute(null, UserDG);
+                    String result = (string)Clipboard.GetData(DataFormats.Text);
+                    UserDG.UnselectAllCells();
+                    System.IO.StreamWriter file = new System.IO.StreamWriter(saveFile.FileName);
+                    file.WriteLine(result.Replace(',', ' '));
+                    file.Close();
+                    MBClass.InfoMB("all done");
+                }
+                catch (Exception ex)
+                {
+                    MBClass.ErrorMB(ex);
+                }
+            }
+        }
     }
 }

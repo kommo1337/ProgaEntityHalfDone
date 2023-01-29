@@ -75,6 +75,27 @@
 
                 </Border.Style>
             </Border>
+            <Border x:Name="ExportBDWord"  CornerRadius="17" Grid.Row="3" Grid.ColumnSpan="1"  Margin="1,0,18,5" MouseLeftButtonDown="ExportBDWord_MouseLeftButtonDown" Grid.Column="1" >
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="4" Color="#f72c7e" Opacity="10" Direction="1" ShadowDepth="0"/>
+                </Border.Effect>
+                <Label Content="Экспорт в Word"  Style="{DynamicResource LabelNormalStyle}" Margin="18,0,18,2">
+                    <Label.Effect>
+                        <DropShadowEffect BlurRadius="25" Color="White" Opacity="100" Direction="1" ShadowDepth="0" />
+                    </Label.Effect>
+                </Label>
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="#f72c7e"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#e80962"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+
+                </Border.Style>
+            </Border>
         </Grid>
     </Border>
 </Page>
